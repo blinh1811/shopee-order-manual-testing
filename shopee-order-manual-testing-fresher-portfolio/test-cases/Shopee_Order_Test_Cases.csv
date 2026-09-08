@@ -1,0 +1,221 @@
+﻿Test Case ID,Module,Sub-Module,Summary,Test Data,Test Steps,Expected Result,Priority,Status,Bug ID
+TC_01,Cart,-,Verify product can be added to cart successfully,-,"1. Open product page
+2. Click ""Add to cart""",Product is added to cart without error,High,Passed,-
+TC_02,Cart,-,"Verify ""Buy Now"" redirects to checkout page directly",-,"1. Open product page
+2. Click ""Buy Now""",Redirects immediately to checkout with correct product data,High,Passed,-
+TC_03,Checkout,UI Overview,"Verify overall layout, font consistency, element alignment, and full content display on page",-,"1. Proceed to payment page
+2. Observe font size, style
+3. Verify layout structure and alignment
+4. Confirm all sections are displayed","1. Layout is clean and aligned
+2. Font is consistent
+3. All content like order summary, voucher, payment method, and shipping info are displayed clearly",Low,Passed,-
+TC_04,Checkout,UI Overview,"Verify all interactive elements (checkboxes, toggles, dropdowns) are clickable and responsive",-,"1. Proceed to payment page
+2. Try clicking all toggles (Shopee Coin, Voucher, etc.)",All interactive UI elements respond correctly on click/toggle and update the state accordingly,Low,Passed,-
+TC_05,Checkout,Shipping address & personal information,Check if user sees the correct default shipping address,-,1. Go to Checkout page,"The default shipping address (name, phone, full address) is displayed correctly",High,Passed,-
+TC_06,Checkout,Shipping address & personal information,Check if user can tap the adress section to update or change it,-,"1. Tap on the address section 
+2. Choose or edit an address",The app navigates to the edit screen and allows address update or selection,High,Passed,-
+TC_07,Checkout,Shipping address & personal information,Verify that user can add a new address from the address selection screen,-,"1. Tap ""+ Add new address"" 
+2. Fill in the form 
+3. Save",New address is added and can be set as default,High,Passed,-
+TC_08,Checkout,Shipping address & personal information,Verify that ID verification field appears for items that require ID,-,1. Go to Checkout page,"""ID Card Information"" section is displayed beside address",Medium,Passed,-
+TC_09,Checkout,Shipping address & personal information,Verify that user can tap and input ID number for required items,ID not yet provided,"1. Tap ""ID Card Information"" 
+2. Enter valid ID info 
+3. Save","All entered personal information (Full name, ID card number, Address) are saved and displayed as masked (e.g., ********2891)",Medium,Passed,-
+TC_10,Checkout,Shipping address & personal information,Verify error is shown if ID info is incomplete or invalid,-,"1. Tap ""ID Card Information"" 
+2. Enter invalid data 
+3. Save","Error message appears, preventing user from continuing",Medium,Failed,BUG_001
+TC_11,Checkout,Shop & Product Detail,Verify shop name is displayed,-,"1. Go to Checkout
+2. Observe shop name display",Shop name is visible and styled properly,Low,Passed,-
+TC_12,Checkout,Shop & Product Detail,Verify shop mall badge appears for Shopee Mall shop,-,"1. Go to Checkout
+2. Observe shop badge","""Mall"" badge displayed next to shop name",High,Passed,-
+TC_13,Checkout,Shop & Product Detail,Verify tapping arrow icon beside shop name navigates to shop's homepage,-,1. Tap arrow icon beside shop name,Redirects to shop page,High,Passed,-
+TC_14,Checkout,Shop & Product Detail,Verify listing data on product view,-,"1. Go to Checkout
+2. Observe product summary block","Image, name, price, and quantity all shown clearly",Medium,Passed,-
+TC_15,Checkout,Shop & Product Detail,Verify correct calculation of subtotal per product,-,"1. Go to Checkout
+2. Observe product subtotal",Subtotal displayed properly,Medium,Passed,-
+TC_16,Checkout,Shop & Product Detail,"Verify presence and toggle of ""Fashion insurance"" checkbox",-,"1. Observe checkbox
+2. Tap to select","Checkbox toggles correctly, displays additional fee if selected",Medium,Passed,-
+TC_17,Checkout,Shop & Product Detail,Verify insurance fee is added to total when checkbox is selected,-,"1. Tap checkbox
+2. Observe total cost update",Total cost increases by insurance fee (if applicable),Medium,Passed,-
+TC_18,Checkout,Shop & Product Detail,Verify available shop voucher is displayed and selectable,-,"1. Tap ""Shop voucher""
+2. Select voucher
+3. Observe discount","Voucher is applied, discount reflected in total",Medium,Passed,-
+TC_19,Checkout,Shop & Product Detail,Verify user cannot select shop voucher if cart does not meet conditions,"Cart total: 200.000đ
+Voucher: -50k for orders ≥ 300.000đ","1. Add products not meeting condition
+2. Tap ""Shop voucher""","Voucher is shown as disabled/grayed out, and cannot be selected",Medium,Passed,-
+TC_20,Checkout,Shop & Product Detail,Verify shop voucher auto-applied when all conditions are met,"Cart total: 500.000đ
+Voucher: -50k for orders ≥ 300.000đ","1. Add multiple eligible products to cart
+2. Go to Checkout",Voucher is automatically selected and discount shown in total,Medium,Passed,-
+TC_21,Checkout,Shop & Product Detail,Verify user can enter message to shop,-,"1. Tap ""Message to shop""
+2. Type message",Message input is accepted and saved with order,Medium,Passed,-
+TC_22,Checkout,Shop & Product Detail,Verify message input has reasonable character limit,Long message (300+ chars),1. Input long message,System truncates or prevents message over allowed limit,Medium,Passed,-
+TC_23,Checkout,Shop & Product Detail,Verify user can access E-receipt request form for international order,-,"1. Add international item to cart
+2. Proceed to checkout
+3. Tap ""Request E-Receipt""",E-Receipt form appears with all necessary input fields,Medium,Passed,-
+TC_24,Checkout,Shipping methods,Verify user can select only one shipping method,-,"1. View shipping methods
+2. Select one option
+3. Try selecting another",Only one option can be selected at a time; previous selection is replaced,High,Passed,-
+TC_25,Checkout,Shipping methods,Check if user cannot select a shipping method,-,"1. Proceed to checkout with a cart that has no valid shipping method (e.g., remote location or restricted item)
+2. Observe shipping section","System displays appropriate message and disables ""Place Order"" button",High,Passed,-
+TC_26,Checkout,Shipping methods,Verify that available shipping methods are displayed after entering valid shipping address,-,"1. Go to checkout
+2. Enter valid shipping address
+3. Scroll to Shipping Method section",A list of available shipping methods is displayed based on location,Medium,Passed,-
+TC_27,Checkout,Shipping methods,Verify correct shipping fee is displayed based on the selected shipping method,-,"1. Select each shipping method
+2. Observe the fee displayed",Shipping fee updates correctly based on selected method,Medium,Passed,-
+TC_28,Checkout,Shipping methods,Verify default shipping method is selected if user does not choose,-,"1. Go to checkout
+2. Skip shipping method step
+3. Continue to payment","A default shipping method is pre-selected (e.g., cheapest or standard shipping)",Medium,Passed,-
+TC_29,Checkout,Shipping methods,Verify certain shipping methods are disabled for unsupported locations,-,"1. Enter restricted shipping address
+2. Observe available shipping methods",Only applicable shipping methods are displayed; restricted methods are hidden or disabled,Medium,Passed,-
+TC_30,Checkout,Shipping methods,Verify shipping methods are reloaded when user changes the shipping address,-,"1. Enter address in Vietnam → observe shipping options
+2. Change address to US → observe update",Shipping methods update automatically according to new location,Medium,Passed,-
+TC_31,Checkout,Voucher,Verify that user can apply both Shopee voucher and Free shipping voucher simultaneously,-,"1. Go to checkout
+2. Tap ""Shopee Voucher"" section
+3. Select valid voucher
+4. Select valid free shipping voucher
+5. Confirm",Voucher is applied; discount is reflected in total price,High,Passed,-
+TC_32,Checkout,Voucher,Check if user cannot apply a voucher,-,"1. Go to the Payment page
+2. Enter an invalid or expired voucher code
+3. Click ""Apply"" or equivalent button",System displays error message and does not apply any discount,High,Passed,-
+TC_33,Checkout,Voucher,Verify user can remove an applied voucher,-,"1. Go to the Payment page
+2. Apply a valid voucher
+3. Deselect applied voucher","1. Voucher is removed successfully
+2. Discount is revoked
+3. Total price updates accordingly",Medium,Passed,-
+TC_34,Checkout,Voucher,Verify user sees recommended voucher on top of the list,-,"1. Go to checkout
+2. Tap ""Shopee Voucher"" section
+3. Observe","Voucher with ""Recommended"" tag is prioritized in the list",Medium,Failed,BUG_002
+TC_35,Checkout,Voucher,Verify user can't select voucher when usage limit is reached,-,"1. Go to checkout
+2. Tap ""Shopee Voucher"" section
+3. Observe",Voucher shows progress bar full and can't be selected,High,Passed,-
+TC_36,Checkout,Voucher,Verify expired voucher is no longer available after expiration date,-,"1. Go to checkout
+2. Tap ""Shopee Voucher"" section
+3. Observe the ""Unavailable vouchers"" section","Expired voucher is removed or moved to ""Unavailable vouchers""",High,Passed,-
+TC_37,Checkout,Voucher,Verify user sees correct discount details on each voucher,-,"1. Go to checkout
+2. Tap ""Shopee Voucher"" section
+3. Observe",Voucher displays accurate text,Medium,Passed,-
+TC_38,Checkout,Voucher,Verify user can select only one voucher per type (Discount or shipping),-,"1. Go to checkout
+2. Tap ""Shopee Voucher"" section
+3. Select one free shipping voucher
+4. Try to select another free shipping voucher",Selecting a new voucher replaces the previous one of the same type,Medium,Passed,-
+TC_39,Checkout,Voucher,Verify user can select voucher based on payment methods,-,"1. Go to checkout
+2. Tap ""Shopee Voucher"" section
+3. Read the voucher conditions",Only vouchers matching the selected payment method are selectable,Medium,Passed,-
+TC_40,Checkout,Voucher,Verify user always has one default voucher,-,"1. Go to checkout
+2. Observe ""Shopee Voucher"" section",One voucher is pre-selected,Medium,Passed,-
+TC_41,Checkout,Voucher,Verify user can apply Shopee Coin to reduce order total,-,"1. Go to checkout
+2. Toggle ""Use Shopee Coin""",Coin amount is deducted; new total displayed,Medium,Passed,-
+TC_42,Checkout,Voucher,Verify max usable Coin is capped according to policy,-,"1. Have 10,000 Xu
+2. Try to use all on a small order",Only max allowed (e.g. 5% or 20K Xu) is used,Medium,Passed,-
+TC_43,Checkout,Voucher,Verify user can't use Shopee coin if account has 0 coin,-,"1. Go to checkout
+2. Try enabling Coin toggle",Toggle is disabled or shows tooltip,Medium,Passed,-
+TC_44,Checkout,Payment Details,Verify user can view available payment methods,-,"1. Go to Checkout screen
+2. Tap ""Payment Method"" section",Payment methods are displayed,High,Passed,-
+TC_45,Checkout,Payment Details,"Verify tapping ""View All"" shows full list of payment methods",-,"1. On Checkout screen, tap ""View All"" next to Payment Method
+2. Observe the screen","All available payment methods (ShopeePay, Linked Bank, SPayLater, Credit/Debit Card, NAPAS, COD, etc.) are displayed",High,Passed,-
+TC_46,Checkout,Payment Details,Verify user can switch between payment methods,-,"1. Tap ""Payment Method""
+2. Select different method (e.g., switch from VCB to ShopeePay wallet)
+3. Tap Confirm",Selected method is updated correctly on checkout screen,Medium,Passed,-
+TC_47,Checkout,Payment Details,Verify user can't use unactivated payment methods,-,"1. Go to Checkout page with an order ready to be paid
+2. Tap on ""Payment Method"" section
+3. Observe the list of available payment methods
+4. Attempt to select an unactivated payment method","1, Unactivated payment methods are disabled, greyed out, or hidden
+2. If selectable, user is redirected to activation page or shown a prompt to activate first
+3. Payment cannot proceed using unactivated methods",Medium,Passed,-
+TC_48,Checkout,Payment Details,Verify ShopeePay and Linked Bank info display correctly,-,"1. Tap ShopeePay section -> Check balance and ""Top Up""
+2. Tap Linked Bank Account -> Expand to view linked cards","1. ShopeePay shows balance + ""Top Up""
+2. Linked bank section expands to show linked cards and ""Link Bank"" option",Medium,Passed,-
+TC_49,Checkout,Payment Details,Verify SPayLater behavior for active/inactive state,-,"1. If inactive, check SPayLater -> See ""Activate Now""
+2. If active, tap -> View installment options","1. Inactive: ""Activate Now"" button is visible
+2. Active: Installment options (e.g., 2X, 3X, 6X) are displayed",Medium,Failed,BUG_003
+TC_50,Checkout,Payment Details,Verify card-based payment methods and promo display,-,"1. Tap Credit/Debit Card or NAPAS section
+2. View listed cards and promotions","Promotions (e.g., 30,000đ Off - VPBank) are shown on eligible cards NAPAS cards starting with 9704 can be selected",Medium,Passed,-
+TC_51,Checkout,Payment Details,"Verify fallback/other payment options (COD, Apple Pay)",-,"1. Scroll to bottom of ""Payment Method"" screen","1. ""Cash on Delivery"" is available for selection
+2. Apple Pay is shown but disabled if not supported",High,Passed,-
+TC_52,Checkout,Payment Details,Verify selected payment method is remembered across orders,-,"1. Go to Checkout screen of Order A
+2. Select a payment method (e.g., ShopeePay → VCB card)
+3. Exit checkout (do not place the order)
+4. Add another item (Order B) to cart
+5. Go to Checkout screen of Order B",The payment method previously selected is automatically shown as the default option,High,Passed,-
+TC_53,Checkout,Order Details,Verify system calculates total item cost correctly,-,"1. Add multiple items to cart
+2. Proceed to checkout","""Merchandise Subtotal"" reflects the correct sum of item prices",High,Passed,-
+TC_54,Checkout,Order Details,Verify shipping fee is calculated based on items & address,-,"1. Add item to cart
+2. Change delivery address
+3. Proceed to checkout","""Shipping Subtotal"" updates according to shipping policy per address",High,Passed,-
+TC_55,Checkout,Order Details,Verify shipping voucher applies discount to shipping fee,-,"1. Add item to cart
+2. Apply free shipping voucher","""Shipping Discount Subtotal"" shows correct deduction based on voucher",High,Passed,-
+TC_56,Checkout,Order Details,Verify product/shipping voucher applies correctly to total,-,"1. Add items to cart
+2. Apply both Shopee voucher and shipping voucher","1. Both Shopee discount voucher and Free Shipping voucher are applied simultaneously.
+2. Total price reflects accurate deduction of item discount and shipping subsidy.
+3. Detailed discount breakdown is clearly displayed in the Order Summary section.",High,Passed,-
+TC_57,Checkout,Order Details,Verify total payable amount is calculated correctly,-,"1. Add items
+2. Apply voucher(s)
+3. Proceed to checkout","""Total Payment"" = Total item cost + shipping fee - total voucher discount",Medium,Passed,-
+TC_58,Checkout,Order Details,Verify total savings are displayed correctly,-,"1. Add discount-eligible items
+2. Apply available vouchers","""Saved"" = total discount (product + shipping + promotion)",Medium,Passed,-
+TC_59,Checkout,Order Details,Verify total stays unchanged when ineligible voucher is applied,-,"1. Add items not meeting voucher condition
+2. Try to apply voucher","Voucher not applied, voucher discount remains unchanged",Medium,Passed,-
+TC_60,Checkout,Order Details,"Verify that when user enables the ""Use Shopee Coins"" toggle, the system deducts the Shopee Coins from the total payment amount",-,"1. Go to the payment page
+2. Enable the ""Use Shopee Coins"" toggle
+3. Observe the Total Payment amount","The total payment amount is reduced by the amount of Shopee Coins applied, without exceeding the allowed limit",High,Passed,-
+TC_61,Checkout,Order Details,"Verify ""Place Order"" button places order successfully",-,"1. Add items
+2. Proceed to checkout
+3. Click ""Place Order""","Order is submitted, redirected to order confirmation page",High,Passed,-
+TC_62,Payment Results,Order Details,"Verify that user can successfully place an order after clicking ""Place Order""",-,"1. Go to Checkout page
+2. Ensure all required fields (shipping, payment) are valid
+3. Click ""Place Order"" button","1. System processes the order
+2. Redirects to Order Confirmation page or Payment Gateway (depending on payment type)
+3. Order ID is generated and shown
+4. Confirmation notification is sent to user",High,Blocked,-
+TC_63,Payment Results,Order Details,Verify that user cannot place order if account balance is insufficient (excluding COD),-,"1. Go to Checkout page
+2. Select ShopeePay or other prepaid method
+3. Ensure account has insufficient balance
+4. Click ""Place Order""","1. System blocks the transaction
+2. Show error (e.g., ""Insufficient balance. Please top up to continue."")
+3. User remains on Checkout page
+4. Order is not created or processed",High,Passed,-
+TC_64,Others,Order Details,Verify all products under same shop are displayed separately,"Product Ax2, Product Bx1 from a same shop","1. Go to Checkout
+2. View product list under shop","Each product (A and B) is shown with image, name, price, and quantity",Medium,Passed,-
+TC_65,Others,Order Details,Verify subtotal per product and total per shop,"Product A: 199.000đ x2
+Product B: 250.000đ x1","1. Go to Checkout
+2. Observe per-product subtotal and total per shop","A: 398.000đ
+B: 250.000đ
+Shop total: 648.000đ",Medium,Passed,-
+TC_66,Others,Order Details,Verify correct shop-level total after applying voucher,Shop voucher: -10k,"1. Apply shop voucher
+2. Observe shop total",Discount applied,Medium,Passed,-
+TC_67,Others,Order Details,Verify insurance applies to each product individually if applicable,Insurance = +5k per product,"1. Check ""Fashion insurance""
+2. Observe additional cost per product",Insurance fee = 5k x 2 products = 10k added to total,Medium,Passed,-
+TC_68,Others,Order Details,Verify clear separation between products when multiple exist,-,1. View layout on Checkout page,"Proper spacing, line breaks, and separation between product rows",Medium,Passed,-
+TC_69,Others,Order Details,Verify user can choose between Personal and Company billing type,-,"1. Open E-Receipt form
+2. Observe ""Type"" section
+3. Tick one option",Only one option can be selected at a time; selection is retained,Medium,Passed,-
+TC_70,Others,Order Details,Verify user can submit valid e-receipt request and all form fields work as expected,-,"1. Open e-receipt request form
+2. Observe ""Type"" section and tick Personal or Company
+3. Leave Full Name, Address, Email blank → Submit
+4. Enter invalid email format → Submit
+5. Enter valid data in all fields → Submit","1. Only one Type option (Personal/Company) can be selected at a time
+2. Error messages shown for required fields
+3. Error shown for invalid email
+4. Form submits successfully with valid data
+5. Confirmation message shown",Medium,Passed,-
+TC_71,Others,Order Details,Verify user can set current information as default personal billing info,-,"1. Fill in info
+2. Toggle ""Set as default Personal billing information""","Toggle works as expected, and info saved for future checkouts if ON",Medium,Passed,-
+TC_72,Others,Order Details,Verify user can successfully submit valid E-Receipt request,-,"1. Fill in all fields correctly
+2. Tap ""Submit Request""",Confirmation shown,Medium,Passed,-
+TC_73,Others,Order Details,Verify e-invoice is delivered to email within 7 working days,-,"1. Submit request
+2. Check inbox within 7 working days (Mon–Fri, excluding Sat/Sun)",E-invoice is received within time frame; delayed only if over weekend or holiday,Medium,Passed,-
+TC_74,Others,Order Details,"Verify default billing info is pre-filled if ""Set as default"" was used before",-,"1. Open E-Receipt form again after prior default save
+2. Observe field values",Form is auto-filled with saved default info,Medium,Passed,-
+TC_75,Others,Order Details,"Verify that clicking on the ""General Transaction Terms"" link redirects the user to Shopee's help website",-,"1. Go to the payment page
+2. Scroll to the bottom near the ""Place Order"" button
+3. Click on the ""General Transaction Terms"" hyperlink","1. A new tab or window opens
+2. The user is redirected to Shopee's official help page showing the General Transaction Terms",Low,Passed,-
+TC_76,Others,Order Details,Verify multiple shop sections are displayed when purchasing from >1 shop,-,"1. Add products from multiple shops into cart
+2. Proceed to checkout","Payment page shows separate sections for each shop with shop name, items, and shipping method",High,Passed,-
+TC_77,Others,Order Details,Verify user can select different shipping methods for each shop,-,"1. On Payment page, locate shipping method per shop
+2. Try selecting different options per shop",Each shop allows independent selection of shipping method,Medium,Passed,-
+TC_78,Others,Order Details,Verify user can apply different vouchers per shop if available,-,"1. On Payment page, apply shop-specific voucher for each store individually","1. Voucher is applied to correct shop only
+2. Total amount reflects per shop discounts",Medium,Passed,-
+TC_79,Others,Order Details,"Verify total price includes subtotal, shipping fee, and discount per shop",-,"1. On payment page, observe the breakdown per shop
+2. Check if total is calculated correctly","1. Each shop shows correct subtotal
+2. Grand total is the sum of all shop subtotals + fees - discounts",High,Passed,-
